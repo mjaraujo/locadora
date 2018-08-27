@@ -3,27 +3,51 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.mjasistemas.constucaows.model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
+package br.com.mjasistemas.constucaows.rest.impl.estabelecimento;
 
 /**
  *
  * @author Marcio
  */
-@Entity
-@XmlRootElement
-public class Estabelecimento extends Entidade{
+public class EstabelecimentoResponse {
 
-    
-    @Id
     private Long ID;
+    private String Nome;
     private String Endereco;
     private String CNPJ;
 
-  
+    public EstabelecimentoResponse() {
+    }
+    
+    
+    /**
+     * @return the ID
+     */
+    public Long getID() {
+        return ID;
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
+    /**
+     * @return the Nome
+     */
+    public String getNome() {
+        return Nome;
+    }
+
+    /**
+     * @param Nome the Nome to set
+     */
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
+
     /**
      * @return the Endereco
      */
@@ -51,14 +75,5 @@ public class Estabelecimento extends Entidade{
     public void setCNPJ(String CNPJ) {
         this.CNPJ = CNPJ;
     }
-  
-    public Long getID() {
-        return ID;
-    }
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
-
-    
 }

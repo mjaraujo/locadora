@@ -7,12 +7,14 @@ package br.com.mjasistemas.constucaows.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Marcio
  */
 @Entity
+@XmlRootElement
 public class Item extends Entidade{
 
     private Double preco;

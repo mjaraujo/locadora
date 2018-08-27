@@ -11,20 +11,8 @@ package br.com.mjasistemas.constucaows.model;
  */
 public abstract class Entidade {
 
-    /**
-     * @return the id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
+  
+    private String nome;
     /**
      * @return the nome
      */
@@ -38,6 +26,4 @@ public abstract class Entidade {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    private Integer id;
-    private String nome;
 }
