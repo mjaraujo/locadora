@@ -5,7 +5,7 @@
  */
 package br.com.mjasistemas.constucaows.rest.service;
 
-import br.com.mjasistemas.constucaows.dao.EstabelecimentoDao;
+import br.com.mjasistemas.constucaows.dao.estabelecimento.EstabelecimentoDao;
 import br.com.mjasistemas.constucaows.model.Estabelecimento;
 import br.com.mjasistemas.constucaows.rest.impl.estabelecimento.EstabelecimentoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class EstabelecimentoService {
     public EstabelecimentoResponse getById(Integer id){
         EstabelecimentoResponse response = new EstabelecimentoResponse();
         Estabelecimento estabelecimento = estabelecimentoDao.getById(id);
-        response.setID(estabelecimento.getID());
+        response.setID(estabelecimento.getId());
         response.setNome(estabelecimento.getNome());
         response.setEndereco(estabelecimento.getEndereco());
         return response;

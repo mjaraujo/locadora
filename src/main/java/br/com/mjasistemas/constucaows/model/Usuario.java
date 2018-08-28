@@ -24,15 +24,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Marcio
  */
 @Entity
-@Table(name = "tb_estabelecimento", catalog = "construcao", schema = "public")
+@Table(name = "tb_usuario", catalog = "construcao", schema = "public")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Estabelecimento.findAll", query = "SELECT e FROM Estabelecimento e")
-    , @NamedQuery(name = "Estabelecimento.findById", query = "SELECT e FROM Estabelecimento e WHERE e.id = :id")
-    , @NamedQuery(name = "Estabelecimento.findByNome", query = "SELECT e FROM Estabelecimento e WHERE e.nome = :nome")
-    , @NamedQuery(name = "Estabelecimento.findByCnpj", query = "SELECT e FROM Estabelecimento e WHERE e.cnpj = :cnpj")
-    , @NamedQuery(name = "Estabelecimento.findByEndereco", query = "SELECT e FROM Estabelecimento e WHERE e.endereco = :endereco")})
-public class Estabelecimento implements Serializable {
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+    , @NamedQuery(name = "Usuario.findById", query = "SELECT u FROM Usuario u WHERE u.id = :id")
+    , @NamedQuery(name = "Usuario.findByLogin", query = "SELECT u FROM Usuario u WHERE u.login = :login")
+    , @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha")})
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,35 +39,28 @@ public class Estabelecimento implements Serializable {
     @Basic(optional = false)
     @Column(name = "id", nullable = false)
     private Integer id;
-    
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "nome", nullable = false, length = 50)
-    private String nome;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "cnpj", nullable = false, length = 20)
-    private String cnpj;
+    @Column(name = "login", nullable = false, length = 20)
+    private String login;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 150)
-    @Column(name = "endereco", nullable = false, length = 150)
-    private String endereco;
+    @Size(min = 1, max = 255)
+    @Column(name = "senha", nullable = false, length = 255)
+    private String senha;
 
-    public Estabelecimento() {
+    public Usuario() {
     }
 
-    public Estabelecimento(Integer id) {
+    public Usuario(Integer id) {
         this.id = id;
     }
 
-    public Estabelecimento(Integer id, String nome, String cnpj, String endereco) {
+    public Usuario(Integer id, String login, String senha) {
         this.id = id;
-        this.nome = nome;
-        this.cnpj = cnpj;
-        this.endereco = endereco;
+        this.login = login;
+        this.senha = senha;
     }
 
     public Integer getId() {
@@ -79,28 +71,20 @@ public class Estabelecimento implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getLogin() {
+        return login;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     @Override
@@ -113,10 +97,10 @@ public class Estabelecimento implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Estabelecimento)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        Estabelecimento other = (Estabelecimento) object;
+        Usuario other = (Usuario) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -125,7 +109,7 @@ public class Estabelecimento implements Serializable {
 
     @Override
     public String toString() {
-        return nome;
+        return login;
     }
     
 }

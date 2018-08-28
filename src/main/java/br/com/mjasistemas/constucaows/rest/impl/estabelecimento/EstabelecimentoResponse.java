@@ -11,7 +11,7 @@ package br.com.mjasistemas.constucaows.rest.impl.estabelecimento;
  */
 public class EstabelecimentoResponse {
 
-    private Long ID;
+    private Integer ID;
     private String Nome;
     private String Endereco;
     private String CNPJ;
@@ -23,14 +23,14 @@ public class EstabelecimentoResponse {
     /**
      * @return the ID
      */
-    public Long getID() {
+    public Integer getID() {
         return ID;
     }
 
     /**
      * @param ID the ID to set
      */
-    public void setID(Long ID) {
+    public void setID(Integer ID) {
         this.ID = ID;
     }
 
